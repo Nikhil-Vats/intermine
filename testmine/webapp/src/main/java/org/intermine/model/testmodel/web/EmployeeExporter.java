@@ -19,6 +19,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.apache.struts.Globals;
 import org.apache.struts.action.ActionMessage;
 import org.apache.struts.action.ActionMessages;
@@ -54,12 +55,28 @@ public class EmployeeExporter implements TableHttpExporter
      * @param response The HTTP response we are creating
      * @param form the form containing the columns paths to export
      */
+
+    protected static final Logger LOG = Logger.getLogger("Custom");
+
     public void export(PagedTable pt, HttpServletRequest request, HttpServletResponse response,
             TableExportForm form, Collection<Path> pathCollection,
             Collection<Path> newPathCollection) {
 
         response.setContentType("text/plain");
         response.setHeader("Content-Disposition ", "inline; filename=exployee.txt");
+        LOG.info("****************** web config *********************");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(request);
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info(" - ");
+        LOG.info("****************** web config *********************");
 
         PrintWriter printWriter;
         try {

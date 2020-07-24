@@ -94,12 +94,38 @@ public abstract class StandardHttpExporter extends HttpExporterBase implements T
         List<String> headers = null;
         if (form != null && form.getIncludeHeaders()) {
             headers = getHeaders(pt, SessionMethods.getWebConfig(request), newPathCollection);
+            LOG.info("****************** web config *********************");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(SessionMethods.getWebConfig(request));
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info("****************** web config *********************");
         }
         final Exporter exporter = getExporter(out, separator, headers);
         ExportResultsIterator iter = null;
         try {
             iter = getResultRows(pt, request);
             iter.goFaster();
+            LOG.info("****************** iter config *********************");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(iter);
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info(" - ");
+            LOG.info("****************** iter config *********************");
             exporter.export(iter, unionPathCollection, newPathCollection);
             if (out instanceof GZIPOutputStream) {
                 try {
